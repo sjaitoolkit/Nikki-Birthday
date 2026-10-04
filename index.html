@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nikki 🎂</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:linear-gradient(135deg,#f7efff,#eee3ff,#f9f2ff);
+    color:#35264a;
+    overflow-x:hidden;
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    width:100%;
+    padding:30px 20px;
+    align-items:center;
+    justify-content:center;
+}
+
+.page.active{
+    display:flex;
+}
+
+.container{
+    width:100%;
+    max-width:520px;
+    text-align:center;
+}
+
+h1,h2,h3{
+    font-family:"Playfair Display",serif;
+}
+
+h1{
+    font-size:42px;
+    color:#6c4ceb;
+    margin-bottom:12px;
+}
+
+h2{
+    font-size:30px;
+    color:#6c4ceb;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+.subtitle{
+    font-size:18px;
+    color:#7b62a9;
+    margin-bottom:20px;
+}
+
+.emoji{
+    font-size:54px;
+    margin-bottom:15px;
+}
+
+.card{
+    background:rgba(255,255,255,.82);
+    border-radius:28px;
+    padding:30px 22px;
+    box-shadow:0 15px 40px rgba(100,65,150,.15);
+    backdrop-filter:blur(10px);
+}
+
+.main-btn{
+    border:none;
+    background:#6c4ceb;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:16px;
+    font-family:"DM Sans",sans-serif;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:25px;
+    box-shadow:0 8px 20px rgba(108,76,235,.25);
+}
+
+.main-btn:active{
+    transform:scale(.97);
+}
+
+/* PASSWORD */
+
+.lock{
+    font-size:52px;
+    margin-bottom:10px;
+}
+
+.password-box{
+    position:relative;
+    margin-top:20px;
+}
+
+.password-box input{
+    width:100%;
+    padding:15px 50px 15px 18px;
+    border:2px solid #e3d7f4;
+    border-radius:16px;
+    outline:none;
+    font-family:"DM Sans",sans-serif;
+    font-size:16px;
+    background:#fff;
+}
+
+.password-box input:focus{
+    border-color:#6c4ceb;
+}
+
+.eye-btn{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.error{
+    display:none;
+    color:#d9534f;
+    font-size:14px;
+    margin-top:10px;
+}
+
+/* COUNTDOWN */
+
+.countdown-number{
+    font-family:"Playfair Display",serif;
+    font-size:100px;
+    color:#6c4ceb;
+    animation:countPulse 1s ease;
+}
+
+@keyframes countPulse{
+    0%{transform:scale(.6);opacity:0}
+    50%{transform:scale(1.15);opacity:1}
+    100%{transform:scale(1);opacity:1}
+}
+
+/* SLIDESHOW */
+
+.slideshow-card{
+    width:100%;
+}
+
+.photo-frame{
+    width:100%;
+    aspect-ratio:3/4;
+    border-radius:24px;
+    overflow:hidden;
+    background:#eee5fa;
+    box-shadow:0 12px 30px rgba(70,40,110,.18);
+}
+
+.photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.caption{
+    min-height:62px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 8px 0;
+    font-family:"Playfair Display",serif;
+    font-size:18px;
+    line-height:1.5;
+    color:#60418c;
+}
+
+.slideshow-buttons{
+    display:none;
+    gap:12px;
+    justify-content:center;
+    margin-top:22px;
+}
+
+.slideshow-buttons.show{
+    display:flex;
+}
+
+.slideshow-buttons button{
+    border:none;
+    padding:13px 20px;
+    border-radius:25px;
+    font-family:"DM Sans",sans-serif;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.replay-btn{
+    background:#eadfff;
+    color:#5d3da0;
+}
+
+.slideshow-continue-btn{
+    background:#6c4ceb;
+    color:white;
+}
+
+/* LETTER */
+
+.letter-card{
+    text-align:left;
+}
+
+.letter-card .opening{
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+    color:#6c4ceb;
+    margin-bottom:18px;
+}
+
+.letter-card p{
+    margin-bottom:16px;
+}
+
+.signature{
+    text-align:right;
+    font-family:"Playfair Display",serif;
+    color:#6c4ceb;
+    font-size:18px;
+    margin-top:20px;
+}
+
+/* SPECIAL */
+
+.quote{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    line-height:1.6;
+    color:#674695;
+    margin-bottom:20px;
+}
+
+.special-text{
+    margin-bottom:10px;
+}
+
+/* FINAL */
+
+.final-photo{
+    width:100%;
+    aspect-ratio:3/4;
+    border-radius:25px;
+    overflow:hidden;
+    margin-bottom:22px;
+    box-shadow:0 15px 35px rgba(70,40,110,.2);
+}
+
+.final-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.final-title{
+    font-size:34px;
+    color:#6c4ceb;
+    margin-bottom:15px;
+}
+
+.final-message{
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+.final-emojis{
+    font-size:30px;
+    margin:15px 0;
+}
+
+.restart-btn{
+    background:#eadfff;
+    color:#5d3da0;
+    border:none;
+    padding:13px 22px;
+    border-radius:25px;
+    font-family:"DM Sans",sans-serif;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:18px;
+}
+
+/* MOBILE */
+
+@media(max-width:420px){
+    h1{
+        font-size:36px;
+    }
+
+    h2{
+        font-size:27px;
+    }
+
+    .card{
+        padding:25px 18px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    .caption{
+        font-size:17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="container">
+        <div class="card">
+            <div class="emoji">🎂✨</div>
+
+            <h1>Hey Nikki!</h1>
+
+            <div class="subtitle">
+                A Little Something For You ✨
+            </div>
+
+            <p>
+                Today is all about celebrating you, so I made something
+                a little special just for your birthday. ✨
+            </p>
+
+            <button class="main-btn" onclick="goToPage(2)">
+                Let's Begin 💜
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <div class="container">
+        <div class="card">
+
+            <div class="lock">🔐</div>
+
+            <h2>A Little Secret</h2>
+
+            <p>Before we begin…</p>
+
+            <p style="margin-top:8px;">
+                There's a tiny password standing between you
+                and your surprise. 👀
+            </p>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="passwordInput"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                >
+
+                <button
+                    class="eye-btn"
+                    id="eyeBtn"
+                    onclick="togglePassword()"
+                >
+                    👁️
+                </button>
+
+            </div>
+
+            <div class="error" id="passwordError">
+                Wrong password. Try again 💜
+            </div>
+
+            <button class="main-btn" onclick="checkPassword()">
+                Unlock ✨
+            </button>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- COUNTDOWN -->
+<section class="page" id="countdownPage">
+    <div class="container">
+        <div class="card">
+            <div class="emoji">🎁</div>
+            <h2>Get Ready...</h2>
+
+            <div class="countdown-number" id="countdownNumber">
+                3
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <div class="container">
+
+        <h2>The Birthday Girl 🎂✨</h2>
+
+        <div class="card slideshow-card">
+
+            <div class="photo-frame">
+                <img
+                    id="slideImage"
+                    src="photos/photo1.jpg"
+                    alt="Nikki"
+                >
+            </div>
+
+            <div class="caption" id="slideCaption">
+                A little moment worth remembering. 💜
+            </div>
+
+            <div class="slideshow-buttons" id="slideshowButtons">
+
+                <button
+                    class="replay-btn"
+                    onclick="replaySlide()"
+                >
+                    ↻ Replay
+                </button>
+
+                <button
+                    class="slideshow-continue-btn"
+                    onclick="goToPage(4)"
+                >
+                    Continue →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="container">
+
+        <div class="card letter-card">
+
+            <div class="opening">
+                Hey Nikki,
+            </div>
+
+            <p>
+                I don't know if I say it enough, but I'm really glad
+                that I got to know you.
+            </p>
+
+            <p>
+                From random conversations and stupid jokes to all those
+                little moments that somehow became memories, I'm genuinely
+                grateful for this friendship.
+            </p>
+
+            <p>
+                You're one of those people who can make an ordinary day
+                a little more fun just by being there. And honestly,
+                that's something really special.
+            </p>
+
+            <p>
+                On your birthday, I just want to wish you a year filled
+                with happiness, peace, success and lots of reasons to smile.
+            </p>
+
+            <p>
+                Keep being the same amazing, crazy and wonderful person
+                you are. 😂💜
+            </p>
+
+            <p>
+                And yes... you're stuck with this friendship for a little
+                longer. 😌
+            </p>
+
+            <p>
+                Happy Birthday, Nikki! 🎂✨ Here's to more laughter,
+                more conversations and many more memories ahead.
+            </p>
+
+            <div class="signature">
+                — From your friend, Saran 💜
+            </div>
+
+            <div style="text-align:center;">
+                <button
+                    class="main-btn"
+                    onclick="goToPage(5)"
+                >
+                    Continue →
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+    <div class="container">
+
+        <div class="card">
+
+            <div class="emoji">💜</div>
+
+            <h2>A Little Reminder</h2>
+
+            <div class="quote">
+                “Some people come into our lives and quietly become
+                a part of our story.”
+            </div>
+
+            <p class="special-text">
+                And you're definitely one of those people. So no matter
+                where life takes us, I hope you always remember that your
+                friendship is something worth keeping. 💜
+            </p>
+
+            <button
+                class="main-btn"
+                onclick="goToPage(6)"
+            >
+                Final Surprise 🎁
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+    <div class="container">
+
+        <div class="card">
+
+            <div class="final-photo">
+                <img
+                    src="photos/photo9.jpg"
+                    alt="Nikki"
+                >
+            </div>
+
+            <div class="final-title">
+                Happy Birthday, Nikki! 🎉
+            </div>
+
+            <p class="final-message">
+                Keep smiling, keep being yourself, and keep making
+                the world a little brighter just by being you. 💜
+            </p>
+
+            <p class="final-message">
+                Here's to more laughter, more memories, more crazy
+                moments and many more birthdays to celebrate. ✨
+            </p>
+
+            <div class="final-emojis">
+                🎂 💜 ✨
+            </div>
+
+            <button
+                class="restart-btn"
+                onclick="viewFromBeginning()"
+            >
+                ↻ View From Beginning
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+const correctPassword = "nikitha";
+
+const photos = [
+    "photos/photo1.jpg",
+    "photos/photo2.jpg",
+    "photos/photo3.jpg",
+    "photos/photo4.jpg",
+    "photos/photo5.jpg",
+    "photos/photo6.jpg",
+    "photos/photo7.jpg",
+    "photos/photo8.jpg"
+];
+
+const captions = [
+    "A little moment worth remembering. 💜",
+    "That smile deserves its own spotlight. ✨",
+    "Just a reminder of how amazing you are. 🌷",
+    "Keep smiling like this always. 💜",
+    "One more beautiful moment of the birthday girl. 🎂",
+    "Some pictures simply make you smile. 😊",
+    "Because today is all about you. ✨",
+    "And here's to many more moments like these. 💜"
+];
+
+let currentSlide = 0;
+let slideTimer = null;
+let countdownTimer = null;
+
+/*
+    false = first slideshow play
+    true  = replay mode
+
+    First play:
+    Buttons hidden until photo 8 finishes.
+
+    Replay:
+    Buttons stay visible from the beginning.
+*/
+let isReplay = false;
+
+
+/* PAGE NAVIGATION */
+
+function goToPage(pageNumber){
+
+    document.querySelectorAll(".page").forEach(function(page){
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + pageNumber).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+
+/* PASSWORD */
+
+function togglePassword(){
+
+    const input = document.getElementById("passwordInput");
+    const eye = document.getElementById("eyeBtn");
+
+    if(input.type === "password"){
+        input.type = "text";
+        eye.textContent = "🙈";
+    }else{
+        input.type = "password";
+        eye.textContent = "👁️";
+    }
+}
+
+
+function checkPassword(){
+
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("passwordError");
+
+    /*
+        toLowerCase() makes the password
+        case-insensitive.
+
+        Nikitha
+        NIKITHA
+        nikitha
+        NiKiThA
+
+        all work.
+    */
+
+    if(input.value.trim().toLowerCase() === correctPassword){
+
+        error.style.display = "none";
+
+        input.value = "";
+
+        startCountdown();
+
+    }else{
+
+        error.style.display = "block";
+
+    }
+}
+
+
+/* ENTER KEY FOR PASSWORD */
+
+document.getElementById("passwordInput").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+            checkPassword();
+        }
+
+    }
+);
+
+
+/* COUNTDOWN */
+
+function startCountdown(){
+
+    stopCountdown();
+
+    goToCountdownPage();
+
+    let number = 3;
+
+    const countdownNumber =
+        document.getElementById("countdownNumber");
+
+    countdownNumber.textContent = number;
+
+    countdownNumber.style.animation = "none";
+
+    void countdownNumber.offsetWidth;
+
+    countdownNumber.style.animation =
+        "countPulse 1s ease";
+
+    countdownTimer = setInterval(function(){
+
+        number--;
+
+        if(number > 0){
+
+            countdownNumber.textContent = number;
+
+            countdownNumber.style.animation = "none";
+
+            void countdownNumber.offsetWidth;
+
+            countdownNumber.style.animation =
+                "countPulse 1s ease";
+
+        }else{
+
+            stopCountdown();
+
+            startSlideshow();
+
+        }
+
+    },1000);
+}
+
+
+function stopCountdown(){
+
+    if(countdownTimer){
+
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+
+    }
+}
+
+
+function goToCountdownPage(){
+
+    document.querySelectorAll(".page").forEach(function(page){
+        page.classList.remove("active");
+    });
+
+    document.getElementById("countdownPage").classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+
+/* SLIDESHOW */
+
+function startSlideshow(){
+
+    stopSlideshow();
+
+    /*
+        This is the FIRST PLAY.
+        Therefore buttons stay hidden.
+    */
+    isReplay = false;
+
+    currentSlide = 0;
+
+    hideSlideshowButtons();
+
+    goToPage(3);
+
+    /*
+        Show Photo 1 + Caption 1 together.
+        They are updated in the SAME function call.
+    */
+    updateSlide();
+
+    /*
+        Wait exactly 3 seconds before moving
+        to Photo 2 + Caption 2.
+    */
+    slideTimer = setTimeout(function(){
+
+        moveToNextAutomatically();
+
+    },3000);
+}
+
+
+function replaySlide(){
+
+    stopSlideshow();
+
+    /*
+        Replay mode:
+        buttons MUST remain visible from the beginning.
+    */
+    isReplay = true;
+
+    currentSlide = 0;
+
+    /*
+        Photo + caption are changed together.
+    */
+    updateSlide();
+
+    /*
+        IMPORTANT:
+        We do NOT hide the buttons here.
+
+        They stay visible while the replay runs.
+    */
+    showSlideshowButtons();
+
+    /*
+        Photo 1 + Caption 1 stay for exactly 3 seconds.
+    */
+    slideTimer = setTimeout(function(){
+
+        moveToNextAutomatically();
+
+    },3000);
+}
+
+
+function moveToNextAutomatically(){
+
+    /*
+        If the current photo is already Photo 8,
+        the slideshow is finished.
+    */
+    if(currentSlide >= photos.length - 1){
+
+        stopSlideshow();
+
+        /*
+            First play:
+            buttons become visible now.
+
+            Replay:
+            buttons are already visible,
+            so we simply keep them visible.
+        */
+        showSlideshowButtons();
+
+        return;
+    }
+
+    /*
+        Move to the NEXT photo and caption together.
+    */
+    currentSlide++;
+
+    updateSlide();
+
+    /*
+        Every photo + caption gets exactly 3 seconds.
+    */
+    slideTimer = setTimeout(function(){
+
+        moveToNextAutomatically();
+
+    },3000);
+}
+
+
+function updateSlide(){
+
+    const image =
+        document.getElementById("slideImage");
+
+    const caption =
+        document.getElementById("slideCaption");
+
+    /*
+        IMPORTANT:
+        Photo and caption are updated together
+        from the SAME currentSlide value.
+
+        This prevents caption/photo mismatch.
+    */
+    image.src = photos[currentSlide];
+
+    caption.textContent = captions[currentSlide];
+
+    /*
+        Force the browser to start both from the same
+        slide state immediately.
+    */
+    image.setAttribute(
+        "data-slide",
+        currentSlide
+    );
+
+    caption.setAttribute(
+        "data-slide",
+        currentSlide
+    );
+}
+
+
+function stopSlideshow(){
+
+    if(slideTimer){
+
+        clearTimeout(slideTimer);
+        slideTimer = null;
+
+    }
+}
+
+
+function showSlideshowButtons(){
+
+    document
+        .getElementById("slideshowButtons")
+        .classList.add("show");
+}
+
+
+function hideSlideshowButtons(){
+
+    document
+        .getElementById("slideshowButtons")
+        .classList.remove("show");
+}
+
+
+/* VIEW FROM BEGINNING */
+
+function viewFromBeginning(){
+
+    stopSlideshow();
+    stopCountdown();
+
+    currentSlide = 0;
+    isReplay = false;
+
+    hideSlideshowButtons();
+
+    /*
+        Reset password page.
+    */
+    document.getElementById("passwordInput").value = "";
+    document.getElementById("passwordError").style.display = "none";
+
+    goToPage(1);
+}
+
+</script>
+
+</body>
+</html>
